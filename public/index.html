@@ -1,0 +1,135 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0912">
+  <title>AniBay — Anime Universe</title>
+  <meta name="description" content="Jelajahi anime favoritmu di AniBay.">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AniBay Home">
+      <span class="brand-mark">A</span>
+      <span>Ani<span class="accent">Bay</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navigasi utama">
+      <a class="active" href="#home">Home</a>
+      <a href="#catalog">Explore</a>
+      <a href="#catalog">Trending</a>
+      <a href="#api">API Lab</a>
+    </nav>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="icon-button" title="Ganti tema" aria-label="Ganti tema">☼</button>
+      <a href="#catalog" class="profile-chip"><span>✦</span> Anime fan</a>
+    </div>
+  </header>
+
+  <main id="home" class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR NEXT OBSESSION</div>
+        <h1>Enter a world<br>of <span class="gradient-text">anime.</span></h1>
+        <p>Temukan cerita baru, karakter favorit, dan dunia yang bikin kamu betah berlama-lama.</p>
+        <div class="hero-actions">
+          <a href="#catalog" class="button button-primary">Jelajahi anime <span>↗</span></a>
+          <a href="#api" class="button button-ghost">Lihat API <span>⌘</span></a>
+        </div>
+        <div class="hero-meta">
+          <span><i class="mini-star">✦</i> Discover something new</span>
+          <span class="meta-divider"></span>
+          <span>Made for anime fans</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Ilustrasi dekoratif">
+        <div class="art-orbit orbit-a"></div>
+        <div class="art-orbit orbit-b"></div>
+        <div class="art-glow"></div>
+        <div class="art-kanji">夢</div>
+        <div class="art-card">
+          <div class="art-topline"><span>ANIBAY ORIGINAL</span><span>NO. 001</span></div>
+          <div class="art-figure">ア</div>
+          <div class="art-bottomline"><strong>ANIME<br>UNIVERSE</strong><span>探索<br>DISCOVER</span></div>
+        </div>
+        <span class="floating-tag tag-top">✦ NEW WORLDS</span>
+        <span class="floating-tag tag-bottom">∞ STORIES</span>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Pencarian anime">
+      <div class="search-label">
+        <span class="search-symbol">⌕</span>
+        <div><strong>Find your next anime</strong><small>Judul, genre, atau sesuatu yang baru</small></div>
+      </div>
+      <form id="search-form" class="search-form">
+        <input id="search-input" type="search" maxlength="100"
+          placeholder="Cari anime..." autocomplete="off" aria-label="Cari anime">
+        <button class="button button-primary" type="submit">Search <span>↗</span></button>
+      </form>
+    </section>
+
+    <section id="catalog" class="content-section">
+      <div class="section-heading">
+        <div><span class="section-kicker">THE ANIME ARCHIVE</span><h2>Explore <span class="accent">universe</span></h2></div>
+        <div class="section-tools">
+          <select id="section-select" aria-label="Kategori anime">
+            <option value="trending">Trending</option>
+            <option value="popular">Popular</option>
+            <option value="latest">Latest</option>
+          </select>
+          <button id="refresh-button" class="icon-button" title="Muat ulang" aria-label="Muat ulang">↻</button>
+        </div>
+      </div>
+
+      <div id="status-message" class="status-message" role="status">Menghubungkan ke AniBay API...</div>
+      <div id="anime-grid" class="anime-grid"></div>
+      <div class="catalog-footer">
+        <button id="load-more" class="button button-ghost">Muat lebih banyak <span>↓</span></button>
+      </div>
+    </section>
+
+    <section id="api" class="api-section">
+      <div class="section-heading">
+        <div><span class="section-kicker">DEVELOPER CORNER</span><h2>API <span class="accent">Explorer</span></h2></div>
+        <span class="api-status"><span class="live-dot"></span> PUBLIC ROUTES</span>
+      </div>
+      <p class="section-description">Uji endpoint publik AniBay dan lihat status serta JSON responsnya.</p>
+      <div class="api-console">
+        <div class="console-sidebar">
+          <span class="console-label">AVAILABLE ROUTES</span>
+          <button class="route-button selected" data-endpoint="home">GET <b>/home</b></button>
+          <button class="route-button" data-endpoint="browse">GET <b>/browse</b></button>
+          <button class="route-button" data-endpoint="filters">GET <b>/browse/filters</b></button>
+          <button class="route-button" data-endpoint="trending">GET <b>/sections/trending</b></button>
+          <button class="route-button" data-endpoint="schedule">GET <b>/schedule</b></button>
+        </div>
+        <div class="console-main">
+          <div class="console-toolbar"><span id="selected-route">GET /home</span><button id="run-endpoint" class="button button-primary">Run request ↗</button></div>
+          <div id="console-status" class="console-status">Ready — pilih endpoint lalu jalankan request.</div>
+          <pre id="console-output" class="console-output"><code>// Respons API akan tampil di sini.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a class="brand" href="#"><span class="brand-mark">A</span><span>Ani<span class="accent">Bay</span></span></a>
+      <span>Made for anime discovery.</span>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+  </main>
+
+  <dialog id="detail-dialog" class="detail-dialog">
+    <button id="close-detail" class="dialog-close" aria-label="Tutup detail">×</button>
+    <div id="detail-content"></div>
+  </dialog>
+</body>
+</html>
